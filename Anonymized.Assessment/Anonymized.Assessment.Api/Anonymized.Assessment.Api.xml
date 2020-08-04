@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Anonymized.Assessment.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Anonymized.Assessment.Api.Controllers.AccountManagementController">
+            <summary>
+            Controller for account management actions.
+            </summary>
+        </member>
+        <member name="M:Anonymized.Assessment.Api.Controllers.AccountManagementController.OpenAccount(Anonymized.Assessment.Api.Models.Requests.CreateAccountRequestModel)">
+            <summary>
+            Open an account according to the <paramref name="request"/>.
+            If amount from <paramref name="request"/> is greater than 0, a transaction will be initiated.
+            </summary>
+            <param name="request">The data after which the account should be oppened.</param>
+            <returns>The opened account.</returns>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Controllers.CustomerController">
+            <summary>
+            Controller for customer actions.
+            </summary>
+        </member>
+        <member name="M:Anonymized.Assessment.Api.Controllers.CustomerController.Get(System.String)">
+            <summary>
+            Get a customer with the specified <paramref name="id"/>.
+            </summary>
+            <param name="id">Unique identifier of the customer.</param>
+            <returns>The customer associated to the <paramref name="id"/>.</returns>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Extensions.ApplicationBuilderExtensions">
+            <summary>
+            Extensions for <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Anonymized.Assessment.Api.Extensions.ApplicationBuilderExtensions.InitializeTestData(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.IServiceProvider)">
+            <summary>
+            Initialize the database with default data.
+            </summary>
+            <param name="app"></param>
+            <param name="serviceProvider"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Infrastructure.CustomersDataSeed">
+            <summary>
+            Settings containing the seed data to be added in the database.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Infrastructure.CustomersDataSeed.Data">
+            <summary>
+            The seed data to be added in the database.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Infrastructure.ICustomersDataSeed">
+            <summary>
+            Settings containing the seed data to be added in the database.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Infrastructure.ICustomersDataSeed.Data">
+            <summary>
+            The seed data to be added in the database.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Mappings.AccountProfile">
+            <summary>
+            Automapper profile for <see cref="T:Anonymized.Assessment.Api.Models.Responses.AccountModel"/> related type objects.
+            </summary>
+        </member>
+        <member name="M:Anonymized.Assessment.Api.Mappings.AccountProfile.#ctor">
+            <summary>
+            Contructor to configure automapper for <see cref="T:Anonymized.Assessment.Api.Models.Responses.AccountModel"/> related type objects.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Mappings.CustomerProfile">
+            <summary>
+            Automapper profile for <see cref="T:Anonymized.Assessment.Api.Models.Responses.CustomerModel"/> related type objects.
+            </summary>
+        </member>
+        <member name="M:Anonymized.Assessment.Api.Mappings.CustomerProfile.#ctor">
+            <summary>
+            Contructor to configure automapper for <see cref="T:Anonymized.Assessment.Api.Models.Responses.CustomerModel"/> related type objects.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Mappings.TransactionProfile">
+            <summary>
+            Automapper profile for <see cref="T:Anonymized.Assessment.Api.Models.Responses.TransactionModel"/> related type objects.
+            </summary>
+        </member>
+        <member name="M:Anonymized.Assessment.Api.Mappings.TransactionProfile.#ctor">
+            <summary>
+            Contructor to configure automapper for <see cref="T:Anonymized.Assessment.Api.Models.Responses.TransactionModel"/> related type objects.
+            </summary>
+        </member>
+        <member name="M:Anonymized.Assessment.Api.Middlewares.ApiExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Exception handler.
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Models.Requests.CreateAccountRequestModel">
+            <summary>
+            Request for opening an account, <see cref="T:Anonymized.Assessment.Services.Models.Responses.Account"/>.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Requests.CreateAccountRequestModel.CustomerId">
+            <summary>
+            Unique identifier of the customer, <see cref="T:Anonymized.Assessment.Services.Models.Responses.Customer"/>, for which the account will be opened.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Requests.CreateAccountRequestModel.InitialCredit">
+            <summary>
+            Initial credit associated to the account.
+            If greater than 0, a transaction, <see cref="T:Anonymized.Assessment.Services.Models.Responses.Transaction"/>, will be initiated.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Models.Responses.AccountModel">
+            <summary>
+            Account associated to a customer.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.AccountModel.Id">
+            <summary>
+            Unique identifier of the account.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.AccountModel.CustomerId">
+            <summary>
+            Unique identifier of the customer, <see cref="T:Anonymized.Assessment.Services.Models.Responses.Customer"/>, asociated to this account.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.AccountModel.Transactions">
+            <summary>
+            List of transactions, <see cref="T:Anonymized.Assessment.Services.Models.Responses.Transaction"/>, associated to this account.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Models.Responses.CustomerModel">
+            <summary>
+            A customer.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.CustomerModel.Id">
+            <summary>
+            Unique identifier of the customer.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.CustomerModel.Balance">
+            <summary>
+            Balance of the customer.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.CustomerModel.Accounts">
+            <summary>
+            List of accounts associated to this customer.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Models.Responses.ErrorDetails">
+            <summary>
+            Error model to be displayed for Internal Server Error.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.ErrorDetails.StatusCode">
+            <summary>
+            Status code of the exception.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.ErrorDetails.Message">
+            <summary>
+            Message of the exception.
+            </summary>
+        </member>
+        <member name="T:Anonymized.Assessment.Api.Models.Responses.TransactionModel">
+            <summary>
+            Transaction associated to an account, <see cref="T:Anonymized.Assessment.Services.Models.Responses.Account"/>.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.TransactionModel.Id">
+            <summary>
+            Unique identifier of the transaction.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.TransactionModel.AccountId">
+            <summary>
+            Unique identifier of the account, <see cref="T:Anonymized.Assessment.Services.Models.Responses.Account"/>, associated to this transaction.
+            </summary>
+        </member>
+        <member name="P:Anonymized.Assessment.Api.Models.Responses.TransactionModel.Amount">
+            <summary>
+            Account of the transaction.
+            </summary>
+        </member>
+    </members>
+</doc>
